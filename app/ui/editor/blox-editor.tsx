@@ -45,6 +45,7 @@ export default function BloxEditor({ initialValue } : { initialValue: string }) 
                    images_file_types: 'jpg,svg,webp',
                    file_picker_types: 'file image media',
                    block_unsupported_drop: true,
+                   statusbar: false,
                    toolbar:
                        'undo redo | blocks | bold italic forecolor | ' +
                        'alignleft aligncenter alignright alignjustify | ' +
