@@ -6,17 +6,23 @@
     "start": "next start"
   },
   "dependencies": {
+    "@automattic/isolated-block-editor": "^2.30.0",
     "@heroicons/react": "^2.2.0",
+    "@hugerte/hugerte-react": "^2.0.2",
     "@tailwindcss/forms": "^0.5.10",
+    "@wordpress/block-editor": "^15.12.0",
+    "@wordpress/sync": "^1.39.0",
     "autoprefixer": "10.4.20",
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
+    "hugerte": "^1.0.9",
     "next": "latest",
     "next-auth": "5.0.0-beta.25",
     "postcss": "8.5.1",
     "postgres": "^3.4.6",
     "react": "latest",
     "react-dom": "latest",
+    "sass": "^1.97.3",
     "tailwindcss": "3.4.17",
     "typescript": "5.7.3",
     "use-debounce": "^10.0.4",
@@ -26,7 +32,9 @@
     "@types/bcrypt": "^5.0.2",
     "@types/node": "22.10.7",
     "@types/react": "19.0.7",
-    "@types/react-dom": "19.0.3"
+    "@types/react-dom": "19.0.3",
+    "@types/wordpress__block-editor": "^15.0.0",
+    "@wordpress/babel-preset-default": "^8.39.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
