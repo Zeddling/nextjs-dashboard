@@ -28,7 +28,7 @@ const PLATFORM_PATTERNS = {
         icon: 'embed-page'
     },
     facebook: {
-        regex: /(?:https?:\/\/)?(?:www\.)?facebook\.com\/([a-zA-Z0-9.]+)\/(?:posts|videos)\/([a-zA-Z0-9]+)/,
+        regex: /(?:https?:\/\/)?(?:www\.)?facebook\.com\/share\/v\/([a-zA-Z0-9]+)\/?/,
         name: 'Facebook',
         icon: 'comment'
     },
@@ -118,14 +118,12 @@ function createFacebookEmbed(url: string): string {
 }
 
 function createLinkedInEmbed(url: string): string {
+    // <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7422473651100446721?collapsed=1" height="895" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+    const match = url.match(/ugcPost-(\d+)/);
+    const postID = match ? match[1] : '';
     // LinkedIn requires their embed script and doesn't support iframe embeds well
     // We'll create a link placeholder that can be enhanced with their script
-    return `<div class="linkedin-embed" style="margin: 10px auto; padding: 20px; border: 1px solid #e1e1e1; border-radius: 4px; max-width: 500px;">
-    <p><strong>LinkedIn Post</strong></p>
-    <a href="${url}" target="_blank" rel="noopener noreferrer" style="color: #0077b5; text-decoration: none;">View post on LinkedIn →</a>
-  </div>
-  <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-  <script type="IN/Share" data-url="${url}"></script>`
+    return `<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:${postID}?collapsed=1" height="895" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>`
 }
 
 // Main embed creator
@@ -279,7 +277,7 @@ function getPlaceholder(platform: PlatformKey): string {
         youtube: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
         tiktok: 'https://www.tiktok.com/@username/video/123456',
         vimeo: 'https://vimeo.com/123456789',
-        facebook: 'https://www.facebook.com/username/posts/123456',
+        facebook: 'https://www.facebook.com/share/v/123456',
         linkedin: 'https://www.linkedin.com/posts/username-123'
     }
     return placeholders[platform]
