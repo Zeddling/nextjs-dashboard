@@ -111,10 +111,7 @@ function createVimeoEmbed(url: string): string {
 }
 
 function createFacebookEmbed(url: string): string {
-    const encodedUrl = encodeURIComponent(url)
-    const embedUrl = `https://www.facebook.com/plugins/post.php?href=${encodedUrl}&show_text=true&width=500`
-
-    return `<iframe src="${embedUrl}" width="500" height="600" style="border:none; overflow:hidden; margin: 10px auto; display: block; max-width: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>`
+    return `<iframe src="${url}" width="500" height="600" style="border:none; overflow:hidden; margin: 10px auto; display: block; max-width: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>`
 }
 
 function createLinkedInEmbed(url: string): string {
